@@ -1,16 +1,88 @@
 <html class="overflow-x-hidden">
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
     <link
       rel="icon"
       href="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png"
     />
+    <meta name="viewport" content="width=device-width" />
+    <script
+      src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js"
+      defer
+    ></script>
+
     <title>Starbucks Rewards</title>
   </head>
   <link href="/main.css" rel="stylesheet" />
 
-  <body class="sm:overflow-x-hidden w-full ">
+  <body class="overflow-x-hidden">
     <div class="fixed bg-white w-screen h-24 items-center z-20">
-      <div class="flex flex-row justify-between text-base">
+      <img
+        class="float-left mx-10 my-2 md:hidden h-12 w-12"
+        src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png"
+      />
+      <button
+        @click="mobileMenuOpen = !mobileMenuOpen"
+        class="
+          mx-10
+          float-right
+          inline-block
+          md:hidden
+          w-8
+          my-5
+          h-8
+          p-1
+          focus:outline-none
+          border-0
+        "
+      >
+        <svg
+          viewBox="0 0 24 24"
+          class="valign-middle absoluteCenter"
+          preserveAspectRatio="xMidYMid meet"
+          aria-hidden="true"
+          focusable="false"
+          style="
+            width: 36px;
+            height: 36px;
+            overflow: visible;
+            fill: currentcolor;
+          "
+        >
+          <path
+            class="
+              sb-hamburgerButton-middleLine-CLOSED sb-hamburgerButton-animation
+            "
+            d="M21,12.9H3c-0.5,0-0.9-0.4-0.9-0.9s0.4-0.9,0.9-0.9h18c0.5,0,0.9,0.4,0.9,0.9S21.5,12.9,21,12.9z"
+          ></path>
+          <path
+            class="
+              sb-hamburgerButton-topLine-CLOSED
+              sb-hamburgerButton-animation
+              sb-hamburgerButton-animation-outer-lines
+            "
+            d="M21,6.9H3C2.5,6.9,2.1,6.5,2.1,6S2.5,5.1,3,5.1h18c0.5,0,0.9,0.4,0.9,0.9S21.5,6.9,21,6.9z"
+          ></path>
+          <path
+            class="
+              sb-hamburgerButton-bottomLine-CLOSED
+              sb-hamburgerButton-animation
+              sb-hamburgerButton-animation-outer-lines
+            "
+            d="M21,18.9H3c-0.5,0-0.9-0.4-0.9-0.9s0.4-0.9,0.9-0.9h18c0.5,0,0.9,0.4,0.9,0.9S21.5,18.9,21,18.9z"
+          ></path>
+          <circle
+            class="sb-icon-hover"
+            fill="transparent"
+            cx="50%"
+            cy="50%"
+            r="75%"
+          ></circle>
+        </svg>
+      </button>
+      <div class="hidden md:flex flex-row justify-between text-base">
         <div class="font-bold float-left flex flex-row h-24">
           <div class="ml-14 mt-5">
             <img
@@ -89,10 +161,9 @@
         STARBUCKS REWARDS
       </div>
     </div>
-    <div class="w-full  lg:h-large bg-lightgreen pt-36 flex flex-row h-auto">
+    <div class="w-full lg:h-large bg-lightgreen pt-36 flex flex-row h-auto">
       <div class="float-left ml-12 mt-40 w-96 text-black">
-       
-        <div class="inline font-medium text-4xl">
+        <div class="block font-medium text-4xl">
           FREE COFFEE <br />IS A TAP AWAY
         </div>
         <div class="mt-5">Join now to start earning Rewards.</div>
@@ -119,8 +190,7 @@
 
       <div
         class="
-        
-        hidden
+          hidden
           overflow-hidden
           lg:block
           absolute
@@ -133,20 +203,18 @@
         <img class="object-cover" src="Images/22.webp" />
       </div>
       <div
-      class="
-      
-        visible
-        overflow-hidden
-        lg:hidden
-        relative
-        
-        
-        float-right
-        
-      "
-    >
-      <img src="Images/11.webp" />
-    </div>
+        class="
+          visible
+          overflow-hidden
+          lg:hidden
+          relative
+          bottom-full
+          float-right
+          mt-auto
+        "
+      >
+        <img src="Images/11.webp" />
+      </div>
     </div>
 
     <div
@@ -163,19 +231,19 @@
       <div class="">Earn Stars and get rewarded in a few easy steps.</div>
     </div>
     <div
-      class="
-        flex
-        lg:flex-row
-        text-center
-        mx-28
-        justify-around
-        items-center
-        mb-20
-        sm:flex-col
-        space-x-10
-      "
+      class="flex md:flex-row text-center md:mx-28 items-center mb-20 flex-col"
     >
-      <div class="items-center flex sm:flex-row lg:flex-col">
+      <div
+        class="
+          text-left
+          md:text-center
+          items-center
+          p-4
+          space-x-7
+          flex flex-row
+          md:flex-col
+        "
+      >
         <div
           class="
             border-2
@@ -189,12 +257,13 @@
             justify-center
             items-center
             mb-6
+            flex-shrink-0
           "
         >
           1
         </div>
 
-        <div class="items-center flex flex-col">
+        <div class="flex flex-col">
           <div class="text-xl font-bold mb-3">Create an account</div>
 
           <div>
@@ -205,7 +274,18 @@
           </div>
         </div>
       </div>
-      <div class="items-center flex flex-col">
+      <div
+        class="
+          text-left
+          md:text-center
+          items-center
+          p-4
+          justify-around
+          space-x-7
+          flex flex-row
+          md:flex-col
+        "
+      >
         <div
           class="
             border-2
@@ -219,19 +299,33 @@
             justify-center
             items-center
             mb-6
+            flex-shrink-0
           "
         >
           2
         </div>
-        <div class="text-xl font-bold mb-3">Order and pay how you'd like</div>
+        <div class="flex flex-col">
+          <div class="text-xl font-bold mb-3">Order and pay how you'd like</div>
 
-        <div>
-          Use cash, credit/debit card or save some time and pay right through
-          the app. You'll collect Stars all ways.
-          <span class="text-green-700 underline">Learn how </span>
+          <div>
+            Use cash, credit/debit card or save some time and pay right through
+            the app. You'll collect Stars all ways.
+            <span class="text-green-700 underline">Learn how </span>
+          </div>
         </div>
       </div>
-      <div class="items-center flex flex-col">
+      <div
+        class="
+          text-left
+          md:text-center
+          items-center
+          p-4
+          justify-around
+          space-x-7
+          flex flex-row
+          md:flex-col
+        "
+      >
         <div
           class="
             border-2
@@ -245,15 +339,18 @@
             justify-center
             items-center
             mb-6
+            flex-shrink-0
           "
         >
           3
         </div>
-        <div class="text-xl font-bold mb-3">Earn Stars, get Rewards</div>
+        <div class="flex flex-col">
+          <div class="text-xl font-bold mb-3">Earn Stars, get Rewards</div>
 
-        <div>
-          As you earn Stars, you can redeem them for Rewards-like free food,
-          drinks, and more. Start redeeming with as little as 25 Stars!
+          <div>
+            As you earn Stars, you can redeem them for Rewards-like free food,
+            drinks, and more. Start redeeming with as little as 25 Stars!
+          </div>
         </div>
       </div>
     </div>
@@ -263,7 +360,7 @@
         Get your favorites for free
       </div>
 
-      <div class="flex flex-row w-4/12 justify-between text-2xl font-medium">
+      <div class="flex flex-row justify-center space-x-16 text-2xl font-medium">
         <div class="border-b-4 border-green-900 text-center w-20">
           25 <span class="text-yellow-600 text-base">&#9733;</span>
         </div>
@@ -273,14 +370,24 @@
         <div>400<span class="text-yellow-600 text-base">&#9733;</span></div>
       </div>
     </div>
-    <div class="bg-lightgreen flex flex-row justify-center">
+    <div
+      class="
+        bg-lightgreen
+        md:text-left
+        text-center
+        items-center
+        flex flex-col
+        md:flex-row
+        justify-center
+      "
+    >
       <div class="">
         <img
           class="h-60"
           src="https://www.starbucks.com/weblx/images/rewards/reward-tiers/025.png"
         />
       </div>
-      <div class="w-3/12 mt-20 mb-20">
+      <div class="md:w-3/12 mt-20 mb-20">
         <div class="text-2xl mb-10 font-semibold">Customize Your Drink</div>
         <div class="text-lg">
           Make your drink just right with an extra espresso shot, dairy
@@ -301,12 +408,24 @@
     >
       <div class="text-2xl font-bold">Endless Extras</div>
       <div class="w-6/12">
-        Joining Starbucks® Rewards means unlocking access to exclusive benefits.
+        Joining Starbucks Rewards means unlocking access to exclusive benefits.
         Say hello to easy ordering, tasty Rewards and-yes, free coffee.
       </div>
     </div>
-    <div class="flex flex-row text-center mx-28 justify-around mb-20">
-      <div class="items-center flex flex-col w-3/12">
+    <div
+      class="flex md:flex-row text-center md:mx-28 items-center mb-20 flex-col"
+    >
+      <div
+        class="
+          text-left
+          md:text-center
+          items-center
+          p-4
+          space-x-7
+          flex flex-row
+          md:flex-col
+        "
+      >
         <div
           class="
             w-28
@@ -317,21 +436,34 @@
             justify-center
             items-center
             mb-6
+            flex-shrink-0
           "
         >
           <img
             src="https://www.starbucks.com/weblx/images/rewards/benefits/1-fun-freebies.jpg"
           />
         </div>
-        <div class="text-xl font-bold mb-3">Fun freebies</div>
+        <div class="flex flex-col">
+          <div class="text-xl font-bold mb-3">Fun freebies</div>
 
-        <div>
-          Not only can you earn free coffee, look forward to a birthday treat
-          plus coffee and tea refills.
+          <div>
+            Not only can you earn free coffee, look forward to a birthday treat
+            plus coffee and tea refills.
+          </div>
+          <div class="mt-4 underline text-green-800">Learn More</div>
         </div>
-        <div class="mt-4 underline text-green-800">Learn More</div>
       </div>
-      <div class="items-center flex flex-col w-3/12">
+      <div
+        class="
+          text-left
+          md:text-center
+          items-center
+          p-4
+          space-x-7
+          flex flex-row
+          md:flex-col
+        "
+      >
         <div
           class="
             w-28
@@ -342,21 +474,34 @@
             justify-center
             items-center
             mb-6
+            flex-shrink-0
           "
         >
           <img
             src="https://www.starbucks.com/weblx/images/rewards/benefits/2-order-and-pay-ahead.jpg"
           />
         </div>
-        <div class="text-xl font-bold mb-3">Order & pay ahead</div>
+        <div class="flex flex-col">
+          <div class="text-xl font-bold mb-3">Order & pay ahead</div>
 
-        <div>
-          Enjoy the convenience of in-store, curbside or drive-thru pickup at
-          select stores.
+          <div>
+            Enjoy the convenience of in-store, curbside or drive-thru pickup at
+            select stores.
+          </div>
+          <div class="mt-4 underline text-green-800">Learn More</div>
         </div>
-        <div class="mt-4 underline text-green-800">Learn More</div>
       </div>
-      <div class="items-center flex flex-col w-3/12">
+      <div
+        class="
+          text-left
+          md:text-center
+          items-center
+          p-4
+          space-x-7
+          flex flex-row
+          md:flex-col
+        "
+      >
         <div
           class="
             w-28
@@ -367,19 +512,22 @@
             justify-center
             items-center
             mb-6
+            flex-shrink-0
           "
         >
           <img
             src="https://www.starbucks.com/weblx/images/rewards/benefits/3-get-to-free-faster.jpg"
           />
         </div>
-        <div class="text-xl font-bold mb-3">Get to free faster</div>
+        <div class="flex flex-col">
+          <div class="text-xl font-bold mb-3">Get to free faster</div>
 
-        <div>
-          Earn Stars even quicker with Bonus Star challenges, Double Star Days
-          and exciting games.
+          <div>
+            Earn Stars even quicker with Bonus Star challenges, Double Star Days
+            and exciting games.
+          </div>
+          <div class="mt-4 underline text-green-800">Learn More</div>
         </div>
-        <div class="mt-4 underline text-green-800">Learn More</div>
       </div>
     </div>
 
@@ -391,8 +539,8 @@
       </div>
 
       <div class="flex flex-col text-left ml-9">
-        <div class="flex flex-row justify-start">
-          <div class="w-60">
+        <div class="flex flex-col md:flex-row justify-start">
+          <div class="w-60 mb-8">
             <div class="text-xl font-medium">
               1
               <img
@@ -403,12 +551,9 @@
             </div>
             <div>Pay as you go</div>
           </div>
-          <div class="flex flex-row w-4/12">
+          <div class="flex flex-row md:w-4/12">
             <div>
-              <img
-                class="w-32"
-                src="https://www.starbucks.com/weblx/images/rewards/ways-to-pay/1A.png"
-              />
+              <img class="w-28" src="Images/1A.png" />
             </div>
             <div class="ml-6">
               <div class="text-xl font-medium mb-5">
@@ -417,12 +562,9 @@
               <div>Use cash or credit/debit card at the register.</div>
             </div>
           </div>
-          <div class="flex flex-row w-4/12">
+          <div class="flex flex-row md:w-4/12">
             <div>
-              <img
-                class="w-96"
-                src="https://www.starbucks.com/weblx/images/rewards/ways-to-pay/1B.png"
-              />
+              <img class="md:w-96" src="Images/1B.png" />
             </div>
             <div class="ml-6">
               <div class="text-xl font-medium mb-5">
@@ -440,8 +582,8 @@
       <div class="border-b-2 w-11/12 border-gray-200 mb-12"></div>
 
       <div class="flex flex-col text-left ml-9">
-        <div class="flex flex-row justify-start">
-          <div class="w-60">
+        <div class="flex flex-col md:flex-row justify-start">
+          <div class="w-60 mb-8">
             <div class="text-xl font-medium">
               2
               <img
@@ -452,14 +594,14 @@
             </div>
             <div>Add funds in the app</div>
           </div>
-          <div class="flex flex-row w-4/12">
+          <div class="flex flex-row md:w-4/12">
             <div>
               <img
                 class="w-96"
                 src="https://www.starbucks.com/weblx/images/rewards/ways-to-pay/2A.png"
               />
             </div>
-            <div class="ml-6">
+            <div class="ml-6 my-6">
               <div class="text-xl font-medium mb-5">Preload</div>
               <div>
                 To save time and earn Stars twice as fast, add money to your
@@ -468,7 +610,7 @@
               </div>
             </div>
           </div>
-          <div class="flex flex-row w-4/12">
+          <div class="flex flex-row md:w-4/12">
             <div>
               <img
                 class="w-60"
@@ -489,8 +631,8 @@
       </div>
       <div class="border-b-2 w-11/12 border-gray-200 mb-12"></div>
       <div class="flex flex-col text-left ml-9">
-        <div class="flex flex-row justify-start mb-20">
-          <div class="w-60 mr-10">
+        <div class="flex flex-col md:flex-row justify-start mb-20">
+          <div class="w-60 mb-10">
             <div class="text-xl font-medium">
               Up to 3
               <img
@@ -501,7 +643,7 @@
             </div>
             <div>With Starbucks Rewards Visa Card</div>
           </div>
-          <div class="flex flex-row w-4/12">
+          <div class="flex flex-row md:w-4/12">
             <div>
               <img
                 class="w-96"
@@ -528,9 +670,11 @@
       class="
         mt-20
         flex flex-col
-        ml-96
-        justify-center justify-items-center
-        object-center
+        md:w-5/12
+        justify-center
+        mx-8
+        md:m-auto
+        md:mt-20
       "
     >
       <div class="text-2xl font-semibold mb-10">Star Codes</div>
@@ -539,14 +683,13 @@
         add Stars to your account.
       </div>
 
-      <div class="mb-20 w-8/12">
+      <div class="mb-20 w-full">
         <input
           type="text"
           placeholder="Enter your Star code"
           class="
             w-full
             rounded-lg
-            width-large
             h-10
             border-2 border-black
             focus:outline-none
@@ -591,16 +734,16 @@
         text-SM
         H-96
         flex
-        lg:flex-row
+        md:flex-row
         justify-around
-        mx-15
         my-20
         h-auto
-        sm:flex-col
-        sm:items-center
+        flex-col
+        items-center
+        p-5
       "
     >
-      <div class="w-5/12">
+      <div class="md:w-5/12">
         <div class="MT-10">At participating stores. Restrictions apply.</div>
 
         <div class="font-semibold my-5">EARNING STARS</div>
@@ -621,7 +764,7 @@
         the Birthday Reward, you must have made at least one Star-earning
         transaction.
       </div>
-      <div class="w-5/12">
+      <div class="md:w-5/12">
         <div class="font-semibold my-5">TERMS OF USE</div>
 
         For full program details visit starbucks.com/rewards/terms opens in new
@@ -642,7 +785,51 @@
 
     <div class="border-b-2 border-gray-200 mb-12"></div>
 
-    <div class="flex flex-row justify-start ml-10">
+    <div class="mb-10 mx-10 flex flex-row items-end justify-between lg:hidden">
+      <div class="text-xl font-semibold">About Us</div>
+      <div class="hover:bg-background hover:rounded-xl">
+        <img
+            class="inline"
+            src="https://img.icons8.com/android/24/000000/expand-arrow.png"
+          />
+      </div>
+    </div>
+    <div class="mb-10 mx-10 flex flex-row items-end justify-between lg:hidden">
+      <div class="text-xl font-semibold">Careers</div>
+      <div class="hover:bg-background hover:rounded-xl">
+        <img
+            class="inline"
+            src="https://img.icons8.com/android/24/000000/expand-arrow.png"
+          />
+      </div>
+    </div>
+    <div class="mb-10 mx-10 flex flex-row items-end justify-between lg:hidden">
+      <div class="text-xl font-semibold">Social Impact</div>
+      <div class="hover:bg-background hover:rounded-xl">
+        <img
+            class="inline"
+            src="https://img.icons8.com/android/24/000000/expand-arrow.png"
+          />      </div>
+    </div>
+    <div class="mb-10 mx-10 flex flex-row items-end justify-between lg:hidden">
+      <div class="text-xl font-semibold">For Business Partners</div>
+      <div class="hover:bg-background hover:rounded-xl">
+        <img
+            class="inline"
+            src="https://img.icons8.com/android/24/000000/expand-arrow.png"
+          />
+      </div>
+    </div>
+    <div class="mb-10 mx-10 flex flex-row items-end justify-between lg:hidden">
+      <div class="text-xl font-semibold">Order and Pickup</div>
+      <div class="hover:bg-background hover:rounded-xl">
+        <img
+            class="inline"
+            src="https://img.icons8.com/android/24/000000/expand-arrow.png"
+          />
+      </div>
+    </div>
+    <div class="hidden md:flex flex-row justify-start ml-10">
       <div class="flex flex-col w-44 mr-10">
         <div class="font-medium text-xl mb-9">About Us</div>
         <div class="text-gray-500 grid grid-cols-1 gap-4 hover:text-gray-700">
@@ -724,12 +911,32 @@
           <img src="https://img.icons8.com/metro/26/000000/twitter.png" />
         </div>
       </div>
-      <div class="flex justify-start flex-row space-x-8 mt-5">
-        <div>Privacy Policy</div>
-        <div>Terms of Use</div>
-        <div>CA Supply Chain Act</div>
-        <div>Submit Your Idea</div>
-        <div>Cookie Preferences</div>
+      <div class="flex justify-start flex-col md:flex-row mt-5">
+        <div class="hover:underline mb-3">
+          Privacy Policy
+          <span class="hidden lg:inline lg:text-gray-800 py-2 lg:px-6 font-bold"
+            >|</span
+          >
+        </div>
+        <div class="hover:underline mb-3">
+          Terms of Use
+          <span class="hidden lg:inline lg:text-gray-800 py-2 lg:px-6 font-bold"
+            >|</span
+          >
+        </div>
+        <div class="hover:underline mb-3">
+          CA Supply Chain Act
+          <span class="hidden lg:inline lg:text-gray-800 py-2 lg:px-6 font-bold"
+            >|</span
+          >
+        </div>
+        <div class="hover:underline mb-3">
+          Submit Your Idea
+          <span class="hidden lg:inline lg:text-gray-800 py-2 lg:px-6 font-bold"
+            >|</span
+          >
+        </div>
+        <div class="hover:underline mb-3">Cookie Preferences</div>
       </div>
       <div class="text-gray-500 text-sm my-4">
         2021 Starbucks Coffee Company. All rights reserved.
