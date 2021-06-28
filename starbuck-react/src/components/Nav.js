@@ -1,5 +1,5 @@
 import React from "react";
-import Subnav from "./Subnav";
+import Subnav from "./Header";
 function Nav() {
   return (
     <>
