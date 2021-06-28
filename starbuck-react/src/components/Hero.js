@@ -41,7 +41,6 @@ function Hero() {
           -right-72
           float-right
           place-content-end
-          h-large
           top-28
       
         "
