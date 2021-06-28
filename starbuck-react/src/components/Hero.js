@@ -3,8 +3,8 @@ import React from 'react'
 function Hero() {
   return (
     <div>
-      <div class="w-full lg:h-large bg-lightgreen pt-36 flex flex-row h-auto">
-      <div class="float-left ml-12 mt-40 w-96 text-black">
+      <div class="w-full lg:h-large bg-lightgreen pt-36 flex md:flex-row h-auto flex-col">
+      <div class="float-left ml-12 md:mt-40 w-96 text-black">
         <div class="block font-medium text-4xl">
           FREE COFFEE <br />IS A TAP AWAY
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 
 function Subnav() {
   return (
-    <div className="items-center bg-green-900 h-12 w-full flex justify-around md:justify-start md:pl-10">
+    <div className="sticky top-0 z-30  px-5 md:fixed md:top-24 items-center bg-green-900 h-12 w-full flex justify-between md:justify-start md:pl-10">
       <div
         class="
           text-lg

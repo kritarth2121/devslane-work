@@ -1,6 +1,6 @@
 import React from "react";
 import Nav from "./components/Nav";
-import Header from "./components/Header";
+import Subnav from "./components/Subnav";
 import Uppermid from "./components/Uppermid";
 import Uppermid1 from "./components/Uppermid1";
 import Centermid from "./components/Centermid";
@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App ">
       <Nav />
-      <Header />
+      <Subnav />
       <Hero/>
       <Uppermid />
       <Uppermid1 />

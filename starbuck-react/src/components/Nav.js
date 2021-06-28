@@ -1,11 +1,11 @@
 import React from "react";
-import Subnav from "./Header";
+import Subnav from "./Subnav";
 function Nav() {
   return (
     <>
-      <div class="fixed bg-white w-screen h-24 items-center z-20">
+      <div class="md:fixed bg-white w-screen md:h-24 h-20  z-20">
         <img
-          class="float-left mx-10 my-2 md:hidden h-12 w-12"
+          class="float-left my-3 mx-10 flex self-center md:hidden h-12 w-12 "
           src="https://upload.wikimedia.org/wikipedia/en/thumb/d/d3/Starbucks_Corporation_Logo_2011.svg/1200px-Starbucks_Corporation_Logo_2011.svg.png"
         />
         <button
@@ -102,7 +102,7 @@ function Nav() {
               Find a Store
             </div>
 
-            <div class="w-20 h-8 ml-5 rounded-xl border-2 border-black hover:bg-gray-100">
+            <div class="w-20 h-8 ml-5 rounded-full border-2 border-black hover:bg-gray-100">
               Sign in
             </div>
 
@@ -123,8 +123,6 @@ function Nav() {
             </div>
           </div>
         </div>
-<Subnav/>
-       
       </div>
     </>
   );
