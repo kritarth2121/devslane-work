@@ -35,7 +35,7 @@ const App: React.FC<Props> = ({title,description,okText,cancelText}) => {
             <div className="self-center text-center">{description}</div>
 
             <div className="flex self-center  text-white flex-row space-x-5 ">
-              <button className="bg-gray-500 rounded-md w-40 h-10">{cancelText}</button>
+              <button className="bg-gray-500 rounded-md w-40 h-10" onClick={()=>setIsOpen(false)}>{cancelText}</button>
                <button className="bg-red-500 rounded-md w-40 h-10">{okText}</button>
                </div>
 
