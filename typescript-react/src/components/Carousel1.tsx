@@ -1,6 +1,11 @@
 import React from "react";
 
-function Carousel1() {
+interface Dict{
+  url:string;
+  title:string;
+  description:string;
+}
+const Carousel1:React.FC<Dict> = ({url,title,description})=> {
   return (
     <div>
       <div
@@ -17,16 +22,15 @@ function Carousel1() {
         <div className="">
           <img
             className="h-60"
-            src="https://www.starbucks.com/weblx/images/rewards/reward-tiers/025.png"
+            src={url}
           />
         </div>
         <div className="md:w-3/12 mt-20 mb-20">
           <div className="text-2xl mb-10 font-semibold">
-            Customize Your Drink
+            {title}
           </div>
           <div className="text-lg">
-            Make your drink just right with an extra espresso shot, dairy
-            substitute or a dash of your favorite syrup.
+            {description}
           </div>
         </div>
       </div>

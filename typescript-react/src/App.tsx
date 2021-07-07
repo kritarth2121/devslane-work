@@ -5,7 +5,6 @@ import Uppermid from "./components/Uppermid";
 import Uppermid1 from "./components/Uppermid1";
 import Centermid from "./components/Centermid";
 import Hero from "./components/Hero";
-import Carousel1 from "./components/Carousel1";
 import Lowermid from "./components/Lowermid";
 import About from "./components/About";
 import Gift from "./components/Gift";
@@ -30,7 +29,6 @@ const App: React.FC<Props> = (props) => {
       <Hero />
       <Uppermid />
       <Uppermid1 />
-      <Carousel1 />
       <Centermid />
       <Lowermid />
       <About />
